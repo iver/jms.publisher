@@ -31,19 +31,21 @@ public class Main {
 
 	public static void main(String[] args) 
 	{
-		try {
-			Application app = new Application();
+		final String fileName = "config.properties";
+		try 
+		{
+			Application app = new Application(fileName);
 			app.SendDateMessage();
 			app.SendActionMessage();
 		} 
 		catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (JMSException e) {
-			// TODO Auto-generated catch block
+			System.out.printf("El archivo %s no existe", fileName);
 			e.printStackTrace();
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
+			System.out.print("Error de entrada y salida");
+			e.printStackTrace();
+		} catch (JMSException e) {
+			System.out.print("Error JMS");
 			e.printStackTrace();
 		}
 	}

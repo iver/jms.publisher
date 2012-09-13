@@ -29,11 +29,11 @@ import java.util.Date;
  * The message can build dynamically and can read from xml file.
  *
  */
-public class PingDateBuilder extends MessageBuilder 
+public class DateMessageBuilder extends MessageBuilder 
 {
-	private final String fileName = "xml/PingMessage.xml";
+	private final String fileName = "xml/DateMessage.xml";
 
-	public PingDateBuilder() {
+	public DateMessageBuilder() {
 		FillData();
 	}
 	

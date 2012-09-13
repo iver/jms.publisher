@@ -30,30 +30,24 @@ import java.util.Properties;
 import javax.jms.JMSException;
 
 import core.ActionMessageBuilder;
+import core.DateMessageBuilder;
 
 public class Application {
 
+	
 	private Properties prop;
 	private MessageManager manager;
 	
-	public Application()
+	public Application(String fileName) throws FileNotFoundException, IOException
 	{
-		Initialize();
+		Initialize(fileName);
 	}
 	
-	private void Initialize() 
+	private void Initialize(String fileName) throws FileNotFoundException, IOException 
 	{
-		try {
-			prop = new Properties();
-			prop.load(new FileInputStream("config.properties"));
-			manager = new MessageManager(prop);
-		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		prop = new Properties();
+		prop.load(new FileInputStream(fileName));
+		manager = new MessageManager(prop);
 	}
 	
 	public void SendActionMessage() throws FileNotFoundException, JMSException, IOException
@@ -64,7 +58,7 @@ public class Application {
 	
 	public void SendDateMessage() throws FileNotFoundException, JMSException, IOException
 	{
-		manager.messageRegister(new ActionMessageBuilder());
+		manager.messageRegister(new DateMessageBuilder());
 		manager.sendFirstMessage();
 	}
 }
