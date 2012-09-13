@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<mensaje>
+	<headerTagName  appId="d220c916-50f9-430c-aaf9-2e231e0a9720" terminal="nombreMaquina" type="ACTION" />
+	<contentTagName  id="69" operacion="Iniciar" />
+</mensaje>
